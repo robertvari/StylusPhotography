@@ -1,13 +1,16 @@
 .navbar {
-    background-color: #1a5c73;
-    padding: 10px;
+    background-color: #586983;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-button{
     color: white;
+    padding: 20px 10px;
 }
 
 .nav-button:hover{
     color: black;
     background-color: white;
+    transition: 0.5s;
 }
