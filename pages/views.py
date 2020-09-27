@@ -5,6 +5,10 @@ def home_view(request):
     return HttpResponse('Home page')
 
 
+def services_view(request):
+    return HttpResponse("Services page")
+
+
 def about_view(request):
     return HttpResponse("About page")
 
