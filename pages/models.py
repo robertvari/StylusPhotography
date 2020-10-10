@@ -3,6 +3,7 @@ from django.db import models
 
 class SiteInfo(models.Model):
     site_name = models.CharField("Oldalnév", max_length=200)
+    logo = models.ImageField("Logo", upload_to="logo", blank=True)
     subtitle = models.CharField("Alcím", max_length=200)
     email = models.EmailField("Email", max_length=200, blank=True)
     phone = models.CharField("Telefon", max_length=200, blank=True)
