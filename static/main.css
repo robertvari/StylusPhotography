@@ -28,3 +28,30 @@ a {
 a:hover {
     color: white;
 }
+
+.site-logo{
+    color: #c51556;
+    font-size: 120px;
+    margin: 10px;
+}
+
+.site-header-layout{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.site-footer-layout{
+    display: flex;
+    justify-content: center;
+    background-color: #191919;
+}
+
+.site-footer-layout p {
+    margin: 10px;
+    color: #7188ab;
+}
+
+.content-container{
+    margin: 10px 50px;
+}
