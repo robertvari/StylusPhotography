@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import About
+from .models import About, Services
 
 
 def home_view(request):
@@ -11,7 +11,13 @@ def gallery_view(request):
 
 
 def services_view(request):
-    return render(request, 'services.html')
+    services = Services.objects.all()
+
+    context = {
+        "services": services
+    }
+
+    return render(request, 'services.html', context)
 
 
 def about_view(request):

@@ -3,12 +3,11 @@
 {% block title %} Services {% endblock title %}
 
 {% block content %}
-    <h2>Photography</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, amet cupiditate dolores eaque esse ipsum iure iusto non suscipit tempore unde vel, voluptas? Doloribus eaque maxime porro quidem soluta voluptatibus.</p>
-
-    <h2>Print</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A animi asperiores commodi consequatur debitis error facilis, id ipsa, maiores non obcaecati provident recusandae rem repellendus reprehenderit sint vero voluptatem voluptatum!</p>
-
-    <h2>Party services</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, culpa cumque dicta enim eos esse explicabo hic ipsam ipsum laborum modi nemo neque nihil nobis pariatur ratione rerum temporibus totam.</p>
+    {% for service in services %}
+        <div>
+            <h2>{{ service.title }}</h2>
+            <img src="{{ service.image.url }}" alt="">
+            <p>{{ service.content }}</p>
+        </div>
+    {% endfor %}
 {% endblock content %}
