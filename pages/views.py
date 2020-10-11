@@ -1,9 +1,16 @@
 from django.shortcuts import render
-from .models import About, Services
+from .models import About, Services, Home
 
 
 def home_view(request):
-    return render(request, 'home.html')
+    home = Home.objects.all()
+    context = {}
+
+    if home:
+        context = {
+            "home": home[0]
+        }
+    return render(request, 'home.html', context)
 
 
 def gallery_view(request):
@@ -11,7 +18,7 @@ def gallery_view(request):
 
 
 def services_view(request):
-    services = Services.objects.all()
+    services = Services.objects.order_by('title')
 
     context = {
         "services": services

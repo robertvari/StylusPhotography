@@ -93,6 +93,17 @@ class Services(models.Model):
         return self.title
 
 
+class Home(models.Model):
+    title = models.CharField('Címsor', max_length=200)
+    content = models.TextField('Bemutatkozó', max_length=5000)
+
+    class Meta:
+        verbose_name_plural = "Nyitó oldal"
+
+    def __str__(self):
+        return self.title
+
+
 def image_cleanup(sender, instance, **kwargs):
     os.remove(instance.image.path)
 
