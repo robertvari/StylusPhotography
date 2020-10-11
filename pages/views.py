@@ -13,10 +13,6 @@ def home_view(request):
     return render(request, 'home.html', context)
 
 
-def gallery_view(request):
-    return render(request, 'gallery.html')
-
-
 def services_view(request):
     services = Services.objects.order_by('title')
 
