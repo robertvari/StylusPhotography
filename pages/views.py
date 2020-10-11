@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import About
 
 
 def home_view(request):
@@ -14,7 +15,13 @@ def services_view(request):
 
 
 def about_view(request):
-    return render(request, 'about.html')
+    abouts = About.objects.all()
+    context = {}
+    if abouts:
+        context["title"] = abouts[0].title
+        context["content"] = abouts[0].content
+
+    return render(request, 'about.html', context)
 
 
 def contact_view(request):
