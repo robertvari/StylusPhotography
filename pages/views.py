@@ -1,37 +1,30 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
 from .models import About, Services, Home
 
 
-def home_view(request):
+class HomeView(TemplateView):
+    template_name = 'home.html'
     home = Home.objects.all()
-    context = {}
-
     if home:
-        context = {
+        extra_context = {
             "home": home[0]
         }
-    return render(request, 'home.html', context)
 
 
-def services_view(request):
-    services = Services.objects.order_by('title')
-
-    context = {
-        "services": services
-    }
-
-    return render(request, 'services.html', context)
+class ServicesView(ListView):
+    model = Services
+    template_name = 'services.html'
+    context_object_name = "services"
 
 
-def about_view(request):
+class AboutView(TemplateView):
+    template_name = "about.html"
     abouts = About.objects.all()
-    context = {}
     if abouts:
-        context["title"] = abouts[0].title
-        context["content"] = abouts[0].content
+        extra_context = {
+            "about": abouts[0]
+        }
 
-    return render(request, 'about.html', context)
 
-
-def contact_view(request):
-    return render(request, 'contact.html')
+class ContactView(TemplateView):
+    template_name = "contact.html"

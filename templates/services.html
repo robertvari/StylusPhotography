@@ -3,6 +3,7 @@
 {% block title %} Services {% endblock title %}
 
 {% block content %}
+
     {% for service in services %}
         <div>
             <h2>{{ service.title }}</h2>
@@ -10,4 +11,5 @@
             <p>{{ service.content }}</p>
         </div>
     {% endfor %}
+
 {% endblock content %}
