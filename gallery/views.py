@@ -11,6 +11,15 @@ class GalleryView(ListView):
         "categories": Category.objects.order_by("title")
     }
 
+    def get_queryset(self):
+        photos = Photo.objects.order_by('-uploaded')
+        category_name = self.request.GET.get("category")
+
+        if category_name:
+            photos = Photo.objects.filter(category__title=category_name)
+
+        return photos
+
 
 class PhotoDetailsView(DetailView):
     model = Photo

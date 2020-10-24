@@ -1,16 +1,16 @@
 <div class="navbar">
 
     <div class="nav_links">
-        <a href="{% url 'home' %}" class="nav-button">HOME</a>
-        <a href="{% url 'gallery_home' %}" class="nav-button">GALLERY</a>
-        <a href="{% url 'about' %}" class="nav-button">ABOUT</a>
-        <a href="{% url 'services' %}" class="nav-button">SERVICES</a>
-        <a href="{% url 'contact' %}" class="nav-button">CONTACT</a>
+        <a href="{% url 'home' %}" class="nav-button {% if request.get_full_path == '/' %}active{% endif %}">HOME</a>
+        <a href="{% url 'gallery_home' %}" class="nav-button {% if '/gallery/' in request.path  %}active{% endif %}">GALLERY</a>
+        <a href="{% url 'about' %}" class="nav-button {% if request.get_full_path == '/about/' %}active{% endif %}">ABOUT</a>
+        <a href="{% url 'services' %}" class="nav-button {% if request.get_full_path == '/services/' %}active{% endif %}">SERVICES</a>
+        <a href="{% url 'contact' %}" class="nav-button {% if request.get_full_path == '/contact/' %}active{% endif %}">CONTACT</a>
     </div>
 
     <div class="nav_links">
         {% for category in categories  %}
-            <a href="" class="nav-button category">{{ category.title }}</a>
+            <a href="{% url 'gallery_home' %}?category={{ category.title }}" class="nav-button category {% if request.GET.category == category.title%}active{% endif %}">{{ category.title }}</a>
         {% endfor %}
     </div>
 
