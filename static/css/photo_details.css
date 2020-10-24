@@ -1,0 +1,30 @@
+.details_layout{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto 300px;
+}
+
+.detail_photo{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.photo_description{
+    margin-left: 30px;
+}
+
+.photo_description_layout{
+    display: flex;
+    flex-direction: column;
+}
+
+.photo_date {
+    align-self: flex-end;
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.photo_category{
+    font-size: 12px;
+    opacity: 0.5;
+}

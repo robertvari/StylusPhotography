@@ -1,5 +1,6 @@
 @import "navbar.css";
 @import "gallery.css";
+@import "photo_details.css";
 
 body {
     background-color: #222222;
