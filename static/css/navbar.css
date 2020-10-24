@@ -1,12 +1,22 @@
 .navbar {
     background-color: #586983;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav_links{
+    display: flex;
     justify-content: center;
 }
 
 .nav-button{
     color: white;
     padding: 20px 10px;
+}
+
+.category {
+    padding: 5px 10px;
 }
 
 .nav-button:hover{
