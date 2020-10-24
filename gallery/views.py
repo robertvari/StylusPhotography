@@ -1,27 +1,14 @@
-from django.shortcuts import render
-import random
-from datetime import datetime
-
-from faker import Faker
-fake = Faker()
+from django.views.generic import ListView, DetailView
+from .models import Photo
 
 
-def create_photo():
-    categories = ['nature', 'cities', 'wedding', 'people']
-
-    category = random.choice(categories)
-    title = fake.sentence()
-    description = fake.text()
-
-    return {
-        "title": title,
-        "category": category,
-        "image": f"https://source.unsplash.com/800x600/?{category}{random.randint(1, 1000)}",
-        "description": description,
-        "creation_date": datetime.now()
-    }
+class GalleryView(ListView):
+    model = Photo
+    template_name = "gallery/gallery_home.html"
+    context_object_name = "photos"
 
 
-def gallery_view(request):
-    photos = [create_photo() for i in range(30)]
-    return render(request, 'gallery/gallery_home.html', {"photos": photos})
+class PhotoDetailsView(DetailView):
+    model = Photo
+    template_name = "gallery/photo_details.html"
+    context_object_name = "photo"
