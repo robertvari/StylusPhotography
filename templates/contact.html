@@ -3,5 +3,19 @@
 {% block title %} Contact {% endblock title %}
 
 {% block content %}
-    <h2>Contact Us!</h2>
+
+    <div class="contact_container">
+
+        <form method="post">
+            {% csrf_token %}
+
+            <h2>Kérjen ajánlatot!</h2>
+
+            {{ form }}
+
+            <button>Küldés</button>
+        </form>
+
+    </div>
+
 {% endblock content %}

@@ -1,5 +1,7 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, FormView
+from django.urls import reverse_lazy, reverse
 from .models import About, Services, Home
+from .forms import ContactForm
 
 
 class HomeView(TemplateView):
@@ -26,5 +28,20 @@ class AboutView(TemplateView):
         }
 
 
-class ContactView(TemplateView):
+class ContactView(FormView):
     template_name = "contact.html"
+    form_class = ContactForm
+    success_url = reverse_lazy("contact_sent")
+
+    def form_valid(self, form):
+        name = form.data["name"]
+        email = form.data["email"]
+        message = form.data["message"]
+
+        print(name, email, message)
+
+        return super().form_valid(form)
+
+
+class ContactSentView(TemplateView):
+    template_name = "email_sent.html"

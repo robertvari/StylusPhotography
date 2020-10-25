@@ -59,7 +59,8 @@ class Photo(models.Model):
 
 
 def image_cleanup(sender, instance, **kwargs):
-    os.remove(instance.image.path)
+    if os.path.exists(instance.image.path):
+        os.remove(instance.image.path)
 
 
 post_delete.connect(image_cleanup, sender=Photo)
