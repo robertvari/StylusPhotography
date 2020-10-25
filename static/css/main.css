@@ -58,3 +58,9 @@ a:hover {
 .content-container{
     margin: 10px 50px;
 }
+
+.center_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
