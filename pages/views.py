@@ -1,7 +1,8 @@
 from django.views.generic import TemplateView, ListView, FormView
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from .models import About, Services, Home
 from .forms import ContactForm
+from django.core.mail import send_mail
 
 
 class HomeView(TemplateView):
@@ -38,7 +39,13 @@ class ContactView(FormView):
         email = form.data["email"]
         message = form.data["message"]
 
-        print(name, email, message)
+        send_mail(
+            f'Üzenet: {name}',
+            message,
+            email,
+            ['to@example.com'],
+            fail_silently=False
+        )
 
         return super().form_valid(form)
 
