@@ -1,0 +1,30 @@
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .site-header-layout{
+    flex-direction: column;
+  }
+
+  .site-header-layout div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-container{
+    margin: 10px;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+
+}
